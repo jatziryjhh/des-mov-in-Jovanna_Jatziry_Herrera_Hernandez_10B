@@ -1,5 +1,6 @@
 // import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
 
+import 'package:first_app_jatz/Student.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,7 +31,9 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 232, 54, 161)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 232, 54, 161),
+        ),
       ),
       home: const MyHomePage(title: 'Primera App de Jatz'),
     );
@@ -61,6 +64,19 @@ class _MyHomePageState extends State<MyHomePage> {
   int age = 21;
   bool programming = true;
 
+  final List<String> students = [
+    "Juan Diego",
+    "Andres Yismael",
+    "Brandon Alfredo",
+  ];
+
+  final Student student = Student(
+    "Jovanna Jatziry Herrera Hernández",
+    "I20223tn062",
+  );
+
+  TextEditingController _txtNameCTRL = TextEditingController();
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -86,32 +102,62 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
   }
-  Future<void> _showMyDialog() async {
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Alerta'),
-        content: const SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              Text('Hijoles que crees, no puedes tener números negativos, ni modo dote'),
-            ],
-          ),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Okidoki'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
+
+  Widget _getAllStudents() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 12),
+        Text("Student´s list: "),
+        const SizedBox(height: 12),
+        ...students.map((n) => Text("- $n")).toList(),
+      ],
+    );
+  }
+
+  void _addStudent() {
+    final name = _txtNameCTRL.text.trim();
+    if (name.isEmpty) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Please write something "))
       );
-    },
-  );
-}
+      return;
+    }
+    setState(() {
+      students.add(name);
+    });
+    _txtNameCTRL.clear();
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Alerta'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                  'Hijoles que crees, no puedes tener números negativos, ni modo dote',
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Okidoki'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,10 +201,31 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: TextField(
+                controller: _txtNameCTRL,
+                decoration: InputDecoration(
+                  labelText: "Name:",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: ElevatedButton(
+                onPressed: _addStudent,
+                child: Text("Add Student"),
+              ),
+            ),
             SizedBox(height: 15),
             Text('Nombre $name'),
             Text('Nombre $age'),
             Text('¿Soy bueno para la chamba?$programming'),
+            SizedBox(height: 15),
+            Text("Original Student: ${student.name}"),
+            Text("Her Student Id is: ${student.studenId}"),
+            _getAllStudents(),
           ],
         ),
       ),
