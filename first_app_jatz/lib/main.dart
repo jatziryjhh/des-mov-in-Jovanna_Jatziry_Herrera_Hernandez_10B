@@ -75,7 +75,11 @@ class _MyHomePageState extends State<MyHomePage> {
     "I20223tn062",
   );
 
-  TextEditingController _txtNameCTRL = TextEditingController();
+  final TextEditingController _txtNameCTRL = TextEditingController();
+  final TextEditingController _txtStudentIdCTRL = TextEditingController();
+
+  //como el profe dijo que podemos usar para la tarea
+  List<Student> studentList = [];
 
   void _incrementCounter() {
     setState(() {
@@ -104,36 +108,41 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _getAllStudents() {
+    if(studentList.isEmpty){
+      return  const Text("No hay estudiantes agregados");
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 12),
         Text("Student´s list: "),
         const SizedBox(height: 12),
-        ...students.map((n) => Text("- $n")).toList(),
+        ...studentList.map((n) => Text("- ${n.name} (${n.studentId})")).toList(),
       ],
     );
   }
 
   void _addStudent() {
     final name = _txtNameCTRL.text.trim();
-    if (name.isEmpty) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Please write something "))
+    final studentId = _txtStudentIdCTRL.text.trim();
+
+    if (name.isEmpty || studentId.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("El nombre y el ID no pueden estar vacíos")),
       );
       return;
     }
     setState(() {
-      students.add(name);
+      studentList.add(Student(name, studentId));
     });
     _txtNameCTRL.clear();
+    _txtStudentIdCTRL.clear();
   }
 
   Future<void> _showMyDialog() async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Alerta'),
@@ -202,11 +211,21 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: TextField(
                 controller: _txtNameCTRL,
                 decoration: InputDecoration(
                   labelText: "Name:",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: TextField(
+                controller: _txtStudentIdCTRL,
+                decoration: InputDecoration(
+                  labelText: "Student Id:",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -224,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('¿Soy bueno para la chamba?$programming'),
             SizedBox(height: 15),
             Text("Original Student: ${student.name}"),
-            Text("Her Student Id is: ${student.studenId}"),
+            Text("Her Student Id is: ${student.studentId}"),
             _getAllStudents(),
           ],
         ),
