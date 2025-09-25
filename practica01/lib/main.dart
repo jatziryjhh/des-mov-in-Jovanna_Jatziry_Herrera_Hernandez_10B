@@ -148,11 +148,10 @@ p
         children: [
           Row(
             children: [
-              const SizedBox(width: 32), // margen de la orilla
+              const SizedBox(width: 32),
               FloatingActionButton(
                 onPressed: _borrarHistorial,
                 tooltip: 'Delete',
-                //icono de eliminar diferente al delete
                 child: const Icon(Icons.delete_forever),
               ),
               const SizedBox(width: 16),
@@ -176,7 +175,7 @@ p
                 tooltip: 'Increment',
                 child: const Icon(Icons.add),
               ),
-              const SizedBox(width: 32), // margen de la orilla
+              const SizedBox(width: 32),
             ],
           ),
         ],
