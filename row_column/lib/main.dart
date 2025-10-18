@@ -77,17 +77,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: EdgeInsets.all(10),
               color: Color.fromARGB(255, 255, 156, 242),
+              height: 100,
+              width: 150,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment
-                    .start, //Arriba, como este esta contenido no se puede mover
+                    .end, //Arriba, como este esta contenido no se puede mover
                 crossAxisAlignment: CrossAxisAlignment
-                    .end, //A la izquierda o derecha con end o center, este se puede mover por que  esta contenido
-                children: [
-                  Text("A"),
-                  SizedBox(height: 8),
-                  Text("B"),
-                  SizedBox(height: 8),
-                  Text("C"),
+                    .center, //A la izquierda o derecha con end o center, este se puede mover por que  esta contenido
+                children: <Widget>[
+                 // Icon(Icons.access_alarm),
+                 Expanded(flex:1,child: Container(color: Colors.red.shade100,)),
+                 Expanded(flex:2,child: Container(color: Colors.green.shade100,)),
+                 // Text("A"), Text("B"),Text("C"),
                 ],
               ),
             ),
