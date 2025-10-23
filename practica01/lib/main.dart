@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<int> _historial = [];
   bool _mostratHistorial = false;
-p
+
   void _incrementCounter() {
     setState(() {
       _counter++;
