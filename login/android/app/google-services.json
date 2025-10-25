@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1057724032655",
-    "project_id": "test-login-a8bda",
-    "storage_bucket": "test-login-a8bda.firebasestorage.app"
+    "project_number": "632772989657",
+    "project_id": "firabase-login-10b",
+    "storage_bucket": "firabase-login-10b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1057724032655:android:58329eaef14ee56397f2fa",
+        "mobilesdk_app_id": "1:632772989657:android:f51b41feccf6ffe21164c8",
         "android_client_info": {
           "package_name": "com.example.login"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA6_l3vy4vBTGtxqynN6Ag-kXYTdOiV_Ro"
+          "current_key": "AIzaSyDmzRCCnFK_vwCLzLoGByONylM6mprZ-vk"
         }
       ],
       "services": {
