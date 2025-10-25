@@ -23,20 +23,11 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -50,20 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCT-ELMjf0rwn64NYVawvpygUUngnlUjnU',
-    appId: '1:1057724032655:web:c3494e9c0c4739cb97f2fa',
-    messagingSenderId: '1057724032655',
-    projectId: 'test-login-a8bda',
-    authDomain: 'test-login-a8bda.firebaseapp.com',
-    storageBucket: 'test-login-a8bda.firebasestorage.app',
+    apiKey: 'AIzaSyA4OQVadJlMipE2MSQ3ufk9rfTbCv7LXOw',
+    appId: '1:632772989657:web:d9171e511be630c01164c8',
+    messagingSenderId: '632772989657',
+    projectId: 'firabase-login-10b',
+    authDomain: 'firabase-login-10b.firebaseapp.com',
+    storageBucket: 'firabase-login-10b.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA6_l3vy4vBTGtxqynN6Ag-kXYTdOiV_Ro',
-    appId: '1:1057724032655:android:58329eaef14ee56397f2fa',
-    messagingSenderId: '1057724032655',
-    projectId: 'test-login-a8bda',
-    storageBucket: 'test-login-a8bda.firebasestorage.app',
+    apiKey: 'AIzaSyDmzRCCnFK_vwCLzLoGByONylM6mprZ-vk',
+    appId: '1:632772989657:android:f51b41feccf6ffe21164c8',
+    messagingSenderId: '632772989657',
+    projectId: 'firabase-login-10b',
+    storageBucket: 'firabase-login-10b.firebasestorage.app',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDYnBNQWfDaztXohVbpN8LlhnxemqVgpwU',
+    appId: '1:632772989657:ios:6bfa23ce733fe3191164c8',
+    messagingSenderId: '632772989657',
+    projectId: 'firabase-login-10b',
+    storageBucket: 'firabase-login-10b.firebasestorage.app',
+    iosBundleId: 'com.example.login',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDYnBNQWfDaztXohVbpN8LlhnxemqVgpwU',
+    appId: '1:632772989657:ios:6bfa23ce733fe3191164c8',
+    messagingSenderId: '632772989657',
+    projectId: 'firabase-login-10b',
+    storageBucket: 'firabase-login-10b.firebasestorage.app',
+    iosBundleId: 'com.example.login',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyA4OQVadJlMipE2MSQ3ufk9rfTbCv7LXOw',
+    appId: '1:632772989657:web:f9dbc7780d251cb91164c8',
+    messagingSenderId: '632772989657',
+    projectId: 'firabase-login-10b',
+    authDomain: 'firabase-login-10b.firebaseapp.com',
+    storageBucket: 'firabase-login-10b.firebasestorage.app',
   );
 
 }
