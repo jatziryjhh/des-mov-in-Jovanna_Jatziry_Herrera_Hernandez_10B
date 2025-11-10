@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   //Creamos el metodo para que es de tipo Future que es lo que develve el ApiService
   Future<void> Load_Data() async {
-    final data = await api.getPosts();
+    final data = await api.getUsers();
     setState(() {
       posts = data;
       loading = false;
@@ -49,9 +49,9 @@ class _HomePageState extends State<HomePage> {
                     posts[index]; //<- Obtenemos el item de la lista posts en la posicion index
                 return ListTile(
                   //<- Creamos un ListTile para mostrar los datos
-                  title: Text(item['title']), //<- Mostramos el titulo del post
+                  title: Text(item['username']), //<- Mostramos el titulo del post
                   subtitle: Text(
-                    item['body'],
+                    item['email'],
                   ), //<- Mostramos el cuerpo del post
                 );
               },
