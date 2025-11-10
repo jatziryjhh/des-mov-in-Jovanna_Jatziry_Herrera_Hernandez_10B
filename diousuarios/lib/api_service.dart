@@ -11,9 +11,9 @@ class ApiService {
     ),
   );
 
-  Future<List<dynamic>> getPosts() async {
+  Future<List<dynamic>> getUsers() async {
     try {
-      final response = await _dio.get('/posts');
+      final response = await _dio.get('/users');
       return response.data;
     } on DioError catch (e) {
       print("Error: ${e.message}");
