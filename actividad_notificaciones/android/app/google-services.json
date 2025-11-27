@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632772989657",
+    "project_id": "firabase-login-10b",
+    "storage_bucket": "firabase-login-10b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632772989657:android:2103ed1cc04431741164c8",
+        "android_client_info": {
+          "package_name": "com.example.actividad_notificaciones"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmzRCCnFK_vwCLzLoGByONylM6mprZ-vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
